@@ -6,6 +6,9 @@
 #include "MFCApplication2.h"
 #include "MFCApplication2Dlg.h"
 #include "afxdialogex.h"
+#include "CDialog_f.h"
+#include "CDialog_a.h"
+#include "CDialog_c.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -67,6 +70,9 @@ BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
 	ON_EN_CHANGE(IDC_EDIT1, &CMFCApplication2Dlg::OnEnChangeEdit1)
 	ON_BN_CLICKED(IDCANCEL, &CMFCApplication2Dlg::OnBnClickedCancel)
 	ON_BN_CLICKED(IDOK, &CMFCApplication2Dlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplication2Dlg::OnBnClickedButton2)
+	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication2Dlg::OnBnClickedButton3)
+	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication2Dlg::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -164,3 +170,30 @@ void CMFCApplication2Dlg::OnBnClickedOk()
 	// TODO: добавьте свой код обработчика уведомлений
 	CDialogEx::OnOK();
 }
+
+
+void CMFCApplication2Dlg::OnBnClickedButton2()
+{
+
+	CDialog_f dlg_f;
+
+	dlg_f.DoModal();
+
+}
+
+
+void CMFCApplication2Dlg::OnBnClickedButton3()
+{
+	CDialog_a dlg_a;
+
+	dlg_a.DoModal();
+}
+
+
+void CMFCApplication2Dlg::OnBnClickedButton1()
+{
+	CDialog_c dlg_c;
+
+	dlg_c.DoModal();
+}
+

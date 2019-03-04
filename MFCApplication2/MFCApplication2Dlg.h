@@ -129,8 +129,10 @@ protected:
 
 		}
 
+
 		return TRUE;  // возврат значения TRUE, если фокус не передан элементу управления
 	}
+
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
@@ -139,4 +141,7 @@ public:
 	afx_msg void OnEnChangeEdit1();
 	afx_msg void OnBnClickedCancel();
 	afx_msg void OnBnClickedOk();
+	afx_msg void OnBnClickedButton2();
+	afx_msg void OnBnClickedButton3();
+	afx_msg void OnBnClickedButton1();
 };
