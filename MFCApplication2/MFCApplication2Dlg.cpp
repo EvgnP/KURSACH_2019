@@ -67,12 +67,11 @@ BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
-	ON_EN_CHANGE(IDC_EDIT1, &CMFCApplication2Dlg::OnEnChangeEdit1)
-	ON_BN_CLICKED(IDCANCEL, &CMFCApplication2Dlg::OnBnClickedCancel)
-	ON_BN_CLICKED(IDOK, &CMFCApplication2Dlg::OnBnClickedOk)
-	ON_BN_CLICKED(IDC_BUTTON2, &CMFCApplication2Dlg::OnBnClickedButton2)
-	ON_BN_CLICKED(IDC_BUTTON3, &CMFCApplication2Dlg::OnBnClickedButton3)
-	ON_BN_CLICKED(IDC_BUTTON1, &CMFCApplication2Dlg::OnBnClickedButton1)
+	ON_EN_CHANGE(IDC_EDIT_parametr_N, &CMFCApplication2Dlg::OnEnChangeEditParametr_N)
+	ON_BN_CLICKED(IDC_BUTTON_REFRESH_GRAPH, &CMFCApplication2Dlg::OnBnClickedRefreshGraph)
+	ON_BN_CLICKED(IDC_BUTTON_parametr_f, &CMFCApplication2Dlg::OnBnClickedParametr_f)
+	ON_BN_CLICKED(IDC_BUTTON_parametr_a, &CMFCApplication2Dlg::OnBnClickedParametr_a)
+	ON_BN_CLICKED(IDC_BUTTON_parametr_c, &CMFCApplication2Dlg::OnBnClickedParametr_c)
 END_MESSAGE_MAP()
 
 
@@ -129,7 +128,7 @@ HCURSOR CMFCApplication2Dlg::OnQueryDragIcon()
 
 
 
-void CMFCApplication2Dlg::OnEnChangeEdit1()
+void CMFCApplication2Dlg::OnEnChangeEditParametr_N()
 {
 	// TODO:  Если это элемент управления RICHEDIT, то элемент управления не будет
 	// send this notification unless you override the CDialogEx::OnInitDialog()
@@ -158,21 +157,15 @@ void CMFCApplication2Dlg::OnEnChangeEdit1()
 }
 
 
-void CMFCApplication2Dlg::OnBnClickedCancel()
+void CMFCApplication2Dlg::OnBnClickedRefreshGraph()
 {
 	// TODO: добавьте свой код обработчика уведомлений
 	CDialogEx::OnCancel();
 }
 
 
-void CMFCApplication2Dlg::OnBnClickedOk()
-{
-	// TODO: добавьте свой код обработчика уведомлений
-	CDialogEx::OnOK();
-}
 
-
-void CMFCApplication2Dlg::OnBnClickedButton2()
+void CMFCApplication2Dlg::OnBnClickedParametr_f()
 {
 
 	CDialog_f dlg_f;
@@ -182,7 +175,7 @@ void CMFCApplication2Dlg::OnBnClickedButton2()
 }
 
 
-void CMFCApplication2Dlg::OnBnClickedButton3()
+void CMFCApplication2Dlg::OnBnClickedParametr_a()
 {
 	CDialog_a dlg_a;
 
@@ -190,7 +183,7 @@ void CMFCApplication2Dlg::OnBnClickedButton3()
 }
 
 
-void CMFCApplication2Dlg::OnBnClickedButton1()
+void CMFCApplication2Dlg::OnBnClickedParametr_c()
 {
 	CDialog_c dlg_c;
 

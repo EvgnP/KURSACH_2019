@@ -4,6 +4,8 @@
 
 #pragma once
 
+#include "CPaintGraph.h"
+
 
 // диалоговое окно CMFCApplication2Dlg
 class CMFCApplication2Dlg : public CDialogEx
@@ -23,7 +25,9 @@ public:
 public:
 
 	CFont m_Font;
-	double m_val;
+	CPaintGraph graph_signal;
+
+	CPaintGraph graph_DPF;
 
 // Реализация
 protected:
@@ -66,10 +70,11 @@ protected:
 		// TODO: добавьте дополнительную инициализацию
 		//ПРИМЕР ВЗАИМОДЕЙСТВИЯ
 		CWnd* pWn = GetDlgItem(IDC_STATIC_N);
+		CString strA;
 
 		if (pWn) {
 
-			CString strA;
+			
 
 			pWn->SetFont(&m_Font);
 
@@ -85,8 +90,6 @@ protected:
 
 		if (pWn) {
 
-			CString strA;
-
 			pWn->SetFont(&m_Font);
 
 			pWn->GetWindowText(strA);
@@ -100,8 +103,6 @@ protected:
 		pWn = GetDlgItem(IDC_STATIC_a);
 
 		if (pWn) {
-
-			CString strA;
 
 			pWn->SetFont(&m_Font);
 
@@ -117,8 +118,6 @@ protected:
 
 		if (pWn) {
 
-			CString strA;
-
 			pWn->SetFont(&m_Font);
 
 			pWn->GetWindowText(strA);
@@ -130,6 +129,11 @@ protected:
 		}
 
 
+		graph_signal.SubclassDlgItem(IDC_PAINTER_SIGNAL, this);
+
+		graph_DPF.SubclassDlgItem(IDC_PAINTER_DPF, this);
+
+
 		return TRUE;  // возврат значения TRUE, если фокус не передан элементу управления
 	}
 
@@ -138,10 +142,9 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-	afx_msg void OnEnChangeEdit1();
-	afx_msg void OnBnClickedCancel();
-	afx_msg void OnBnClickedOk();
-	afx_msg void OnBnClickedButton2();
-	afx_msg void OnBnClickedButton3();
-	afx_msg void OnBnClickedButton1();
+	afx_msg void OnEnChangeEditParametr_N();
+	afx_msg void OnBnClickedRefreshGraph();
+	afx_msg void OnBnClickedParametr_f();
+	afx_msg void OnBnClickedParametr_a();
+	afx_msg void OnBnClickedParametr_c();
 };
