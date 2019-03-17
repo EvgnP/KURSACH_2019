@@ -41,30 +41,16 @@ void CPaintGraph::OnPaint()
 
 
 
-	//dc.MoveTo(0,65);
-	//dc.LineTo(270, 65);
+	dc.MoveTo(0,65);
+	dc.LineTo(270, 65);
 
-	//dc.MoveTo(135, 0);
-	//dc.LineTo(135, 130);
+	dc.MoveTo(135, 0);
+	dc.LineTo(135, 130);
 
-	dc.LineTo(270,130);
+	/*dc.LineTo(270,130);
 	dc.LineTo(0,130);
-	dc.LineTo(0, 0);
+	dc.LineTo(0, 0);*/
 
-	/*dc.Ellipse(35, 20, 50, 35);
-
-	dc.Ellipse(15, 20, 30, 35);
-
-	dc.Ellipse(27, 1, 38, 30);
-
-	dc.MoveTo(27, 8);
-
-	dc.LineTo(37, 8);
-
-	dc.MoveTo(32, 8);
-
-	dc.LineTo(32, 1);*/
-	
 
 	
 
