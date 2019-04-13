@@ -9,6 +9,8 @@
 #include "CDialog_f.h"
 #include "CDialog_a.h"
 #include "CDialog_c.h"
+#include "CCalc.h"
+#include "resource.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -61,6 +63,9 @@ CMFCApplication2Dlg::CMFCApplication2Dlg(CWnd* pParent /*=NULL*/)
 void CMFCApplication2Dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
+	DDX_Control(pDX, IDC_SLIDER_CHANGE_Y, m_Slider_Y);
+	DDX_Control(pDX, IDC_SLIDER_CHANGE_X, m_Slider_X);
+	DDX_Control(pDX, IDC_TAB_PARAMETERS, m_tabctrl);
 }
 
 BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
@@ -72,6 +77,9 @@ BEGIN_MESSAGE_MAP(CMFCApplication2Dlg, CDialogEx)
 	ON_BN_CLICKED(IDC_BUTTON_parametr_f, &CMFCApplication2Dlg::OnBnClickedParametr_f)
 	ON_BN_CLICKED(IDC_BUTTON_parametr_a, &CMFCApplication2Dlg::OnBnClickedParametr_a)
 	ON_BN_CLICKED(IDC_BUTTON_parametr_c, &CMFCApplication2Dlg::OnBnClickedParametr_c)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER_CHANGE_Y, &CMFCApplication2Dlg::OnNMCustomdrawSliderChangeY)
+	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER_CHANGE_X, &CMFCApplication2Dlg::OnNMCustomdrawSliderChangeX)
+	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_PARAMETERS, &CMFCApplication2Dlg::OnTcnSelchangeTabParameters)
 END_MESSAGE_MAP()
 
 
@@ -190,3 +198,76 @@ void CMFCApplication2Dlg::OnBnClickedParametr_c()
 	dlg_c.DoModal();
 }
 
+
+
+
+void CMFCApplication2Dlg::OnNMCustomdrawSliderChangeY(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
+	// TODO: добавьте свой код обработчика уведомлений
+	/*this->SetScrollRange(0,0,30,1);
+	this->SetScrollPos(0,0,1);*/
+	
+
+	//changeY.SetScale(30 - m_Slider_Y.GetPos(), 1);
+	m_calc.m_scaleY = 30 - m_Slider_Y.GetPos();
+
+	CWnd *pwn = GetDlgItem(IDC_PAINTER_SIGNAL);
+
+	pwn->Invalidate();
+	
+	pwn = GetDlgItem(IDC_PAINTER_DPF);
+
+	pwn->Invalidate();
+
+	*pResult = 0;
+}
+
+
+void CMFCApplication2Dlg::OnNMCustomdrawSliderChangeX(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	LPNMCUSTOMDRAW pNMCD = reinterpret_cast<LPNMCUSTOMDRAW>(pNMHDR);
+	m_calc.m_scaleX = 30 - m_Slider_X.GetPos();
+
+	CWnd *pwn = GetDlgItem(IDC_PAINTER_SIGNAL);
+
+	pwn->Invalidate();
+
+	pwn = GetDlgItem(IDC_PAINTER_DPF);
+
+	pwn->Invalidate();
+	*pResult = 0;
+}
+
+
+
+
+void CMFCApplication2Dlg::OnTcnSelchangeTabParameters(NMHDR *pNMHDR, LRESULT *pResult)
+{
+	// TODO: добавьте свой код обработчика уведомлений
+	*pResult = 0;
+
+	int iSel = m_tabctrl.GetCurSel();
+
+	if (iSel == 0) {
+		
+		m_tab_a.ShowWindow(SW_SHOW);
+		m_tab_b.ShowWindow(SW_HIDE);
+		m_tab_c.ShowWindow(SW_HIDE);
+
+	}
+	else if (iSel == 1) {
+		
+		m_tab_a.ShowWindow(SW_HIDE);
+		m_tab_b.ShowWindow(SW_SHOW);
+		m_tab_c.ShowWindow(SW_HIDE);
+
+	}
+	else if (iSel == 2) {
+
+		m_tab_a.ShowWindow(SW_HIDE);
+		m_tab_b.ShowWindow(SW_HIDE);
+		m_tab_c.ShowWindow(SW_SHOW);
+
+	}
+}

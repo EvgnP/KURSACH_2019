@@ -45,6 +45,18 @@
     <ClInclude Include="CPaintGraph.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
+    <ClInclude Include="CCalc.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyTab_a.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyTab_b.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="CMyTab_c.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCApplication2.cpp">
@@ -68,6 +80,18 @@
     <ClCompile Include="CPaintGraph.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="CCalc.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyTab_a.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyTab_b.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
+    <ClCompile Include="CMyTab_c.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MFCApplication2.rc">
@@ -76,6 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MFCApplication2.rc2">
+      <Filter>Файлы ресурсов</Filter>
+    </None>
+    <None Include="res\ribbon1.mfcribbon-ms">
       <Filter>Файлы ресурсов</Filter>
     </None>
   </ItemGroup>

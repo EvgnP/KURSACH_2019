@@ -2,6 +2,8 @@
 #include "MFCApplication2.h"
 #include "CPaintGraph.h"
 #include <iostream>
+#include <vector>
+#include "MFCApplication2Dlg.h"
 
 using namespace std;
 
@@ -35,9 +37,9 @@ void CPaintGraph::OnPaint()
 
 	dc.FillSolidRect(rc, RGB(255,255,255));
 
-	CBrush c;
+	/*CBrush c;
 	c.CreateSolidBrush(COLORREF RGB(255,155,255));
-	dc.SelectObject(&c);
+	dc.SelectObject(&c);*/
 
 
 
@@ -47,15 +49,27 @@ void CPaintGraph::OnPaint()
 	dc.MoveTo(135, 0);
 	dc.LineTo(135, 130);
 
-	/*dc.LineTo(270,130);
-	dc.LineTo(0,130);
-	dc.LineTo(0, 0);*/
+	dc.MoveTo(0,65);
+
+	std::vector<POINT> vecPT;
+
+	CMFCApplication2Dlg* pD = (CMFCApplication2Dlg*)AfxGetMainWnd();
+	if (!pD)
+		return;
+	pD->m_calc.GetPoints(vecPT);
+	CPen pR;
+	pR.CreatePen(PS_SOLID, 2, RGB(158, 0, 0));
+	HGDIOBJ pOld = dc.SelectObject(pR);
+
+	for (int i = 0; i < vecPT.size(); i++)
+	{
+		if (!i)
+			dc.MoveTo(vecPT[i]);
+		else
+			dc.LineTo(vecPT[i]);
+	}
 
 
-	
-
-
-	
-	
+	dc.SelectObject(pOld);
 
 }

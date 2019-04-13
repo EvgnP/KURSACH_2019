@@ -185,9 +185,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CCalc.h" />
     <ClInclude Include="CDialog_a.h" />
     <ClInclude Include="CDialog_c.h" />
     <ClInclude Include="CDialog_f.h" />
+    <ClInclude Include="CMyTab_a.h" />
+    <ClInclude Include="CMyTab_b.h" />
+    <ClInclude Include="CMyTab_c.h" />
     <ClInclude Include="CPaintGraph.h" />
     <ClInclude Include="MFCApplication2.h" />
     <ClInclude Include="MFCApplication2Dlg.h" />
@@ -196,9 +200,13 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CCalc.cpp" />
     <ClCompile Include="CDialog_a.cpp" />
     <ClCompile Include="CDialog_c.cpp" />
     <ClCompile Include="CDialog_f.cpp" />
+    <ClCompile Include="CMyTab_a.cpp" />
+    <ClCompile Include="CMyTab_b.cpp" />
+    <ClCompile Include="CMyTab_c.cpp" />
     <ClCompile Include="CPaintGraph.cpp" />
     <ClCompile Include="MFCApplication2.cpp" />
     <ClCompile Include="MFCApplication2Dlg.cpp" />
@@ -214,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\MFCApplication2.rc2" />
+    <None Include="res\ribbon1.mfcribbon-ms" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MFCApplication2.ico" />
